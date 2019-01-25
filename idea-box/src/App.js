@@ -1,20 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import HeaderComponent from './headerComponent'
 import FormComponent from './formComponent'
 import IdeaComponent from './ideaComponent'
+import SearchComponent from './searchComponent'
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      ideas:[]
+      ideas:[],
     }
   }
 
   addIdea = (idea) => {
-    this.setState({ideas:[...this.state.ideas, idea]},()=>{
+    idea = {
+      ...idea,
+      id: this.state.ideas.length+1
+    }
+    this.setState({ideas:[...this.state.ideas, idea], quality:"swill"},()=>{
       localStorage.setItem("ideas",JSON.stringify(this.state.ideas))
+    })
+  }
+
+  deleteIdea = (idea) => {
+    return (event) => {
+      const temp = {
+        ...this.state.ideas
+    } 
+      const ideaArray = Object.values(temp);
+      delete temp[ideaArray.indexOf(idea)];
+      this.setState({
+        ideas: Object.values(temp)
+    },()=>{
+      localStorage.setItem("ideas",JSON.stringify(this.state.ideas))
+    })
+    }
+  }
+
+  filterIdeas = (search) => {
+    const ideasArray=this.state.ideas.filter(idea => {
+      return idea.title.includes(search)
+    });
+    this.setState({
+      ideas: ideasArray
     })
   }
 
@@ -33,7 +61,8 @@ class App extends Component {
       <div className="container">
         <HeaderComponent />
         <FormComponent addIdea={this.addIdea}/>
-        <IdeaComponent ideas={this.state.ideas}/>
+        <SearchComponent ideas={this.state.ideas} filterIdeas={this.filterIdeas}/>
+        <IdeaComponent ideas={this.state.ideas} delete={this.deleteIdea} />
       </div>
     )
   }
@@ -42,27 +71,4 @@ class App extends Component {
 export default App;
 
 
-/*class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
 
-export default App;*/

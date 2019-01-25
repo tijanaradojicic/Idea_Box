@@ -1,3 +1,6 @@
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Arizonia');
+
 * {
   box-sizing: border-box;
 }
@@ -9,33 +12,112 @@ body {
   background-size: cover;
 }
 
-/*.container {
-  display: flex;
-  justify-content: space-between;
-}*/
-
 .header h1 {
-  color: pink;
+  color: rgb(240, 149, 164);
   text-align: center;
+  font-family: Arizonia;
+  font-size: 50px;
 }
 
 input, button {
   display: block;
-  width: 50%;
-  margin-left: 25%;
+  width: 40%;
+  margin-left: 30%;
   margin-bottom: 2%
 }
 
 .idea {
-  display: block;
+  position: relative;
   margin-bottom: 2%;
   margin-left: 25%;
   width: 50%;
-  box-shadow: 0px 5px 15px 5px pink;
+  box-shadow: 0px 5px 15px 5px rgb(240, 149, 164);
   color: purple;
   font-size: 5vh
 }
 
+.delete-button{
+  position: absolute;
+  margin: 0;
+  right: 0;
+  top: 0;
+  background: rgb(240, 149, 164);
+  border-radius: 100%;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+}
+
+.rate{
+  height: 40px;
+}
+
+.rateUp{
+  position: relative;
+  background-color: rgba(10, 104, 10,1);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+  display: inline;
+}
+
+.rateDown{
+  position: relative;
+  background-color: rgba(245, 45, 45,1);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+  display: inline;
+}
+
+.rateUp:hover{
+  background-color: rgba(10, 104, 10,0.5);
+}
+
+.rateDown:hover{
+  background-color: rgba(245, 45, 45,0.5);
+}
+
+.quality{
+  display: inline;
+  font-size: 20px;
+  padding: 2%;
+}
+
+input{
+  box-shadow: 5px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.submit{
+  background-color: rgb(127, 127, 214);
+  border-radius: 5px;
+  height: 25px;
+  color: white;
+}
+
+h4{
+  color: rgb(77, 5, 59);
+  font-size: 25px;
+}
+
+.idea p{
+  color: rgba(77,5,59,0.6);
+  font-size: 20px;
+}
 
 /*body {
   margin: 0;

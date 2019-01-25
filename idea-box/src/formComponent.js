@@ -23,7 +23,7 @@ class FormComponent extends React.Component {
 
                     <input type="text" name="title" placeholder="Title" onChange={this.handleChange} />
                     <input type="text" name="description" placeholder="Description" onChange={this.handleChange} />
-                    <button onClick={this.handleSubmit}>Save</button> 
+                    <button className="submit" onClick={this.handleSubmit}>Save</button> 
 
                 </form>
             </div>
